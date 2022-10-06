@@ -6,7 +6,7 @@ source ./init.sh
 
 ./shutdown.sh
 
-APP_CONTEXT=simple-service-webapp
+APP_CONTEXT=reviews
 
 rm ${CATALINA_BASE}/webapps/${APP_CONTEXT}.war
 rm -rf ${CATALINA_BASE}/webapps/${APP_CONTEXT}

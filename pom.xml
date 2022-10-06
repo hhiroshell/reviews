@@ -3,14 +3,14 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>simple-service-webapp</artifactId>
+    <groupId>com.github.hhiroshell</groupId>
+    <artifactId>reviews</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>simple-service-webapp</name>
+    <version>1.0.0</version>
+    <name>reviews</name>
 
     <build>
-        <finalName>simple-service-webapp</finalName>
+        <finalName>reviews</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
