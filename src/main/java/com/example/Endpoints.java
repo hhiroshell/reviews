@@ -6,10 +6,10 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 /**
- * Root resource (exposed at "myresource" path)
+ * Root resource (exposed at "reviews" path)
  */
-@Path("myresource")
-public class MyResource {
+@Path("/")
+public class Endpoints {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -18,8 +18,12 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getIt() {
-        return "Got it!";
+    @Produces(MediaType.APPLICATION_JSON)
+    public Review getReview() {
+        Review review = new Review();
+        review.setName("Bob");
+        review.setAge(99);
+
+        return review;
     }
 }
