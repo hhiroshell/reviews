@@ -1,4 +1,4 @@
-package com.bookinfo.reviews;
+package com.bookinfo.reviews.repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -17,7 +17,7 @@ public class ReviewService {
     @PersistenceContext
     private EntityManager em;
 
-    ReviewService() {
+    public ReviewService() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ReviewService");
         this.em = emf.createEntityManager();
     }

@@ -1,4 +1,4 @@
-package com.bookinfo.reviews;
+package com.bookinfo.reviews.api;
 
 public class Review {
     private String reviewer;

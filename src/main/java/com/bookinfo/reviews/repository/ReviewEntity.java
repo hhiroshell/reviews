@@ -1,4 +1,4 @@
-package com.bookinfo.reviews;
+package com.bookinfo.reviews.repository;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

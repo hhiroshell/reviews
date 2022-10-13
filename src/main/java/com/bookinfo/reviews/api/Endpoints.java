@@ -1,5 +1,7 @@
-package com.bookinfo.reviews;
+package com.bookinfo.reviews.api;
 
+import com.bookinfo.reviews.repository.ReviewEntity;
+import com.bookinfo.reviews.repository.ReviewService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
