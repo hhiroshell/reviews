@@ -1,4 +1,4 @@
-package com.example;
+package com.bookinfo.reviews;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;

@@ -1,4 +1,4 @@
-package com.example;
+package com.bookinfo.reviews;
 
 public class Rating {
     private int stars;

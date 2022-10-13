@@ -1,4 +1,4 @@
-package com.example;
+package com.bookinfo.reviews;
 
 import java.util.List;
 
