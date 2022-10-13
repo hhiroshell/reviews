@@ -1,22 +1,41 @@
 package com.example;
 
 public class Review {
-    private String name;
-    private int age;
+    private String reviewer;
+    private String text;
+    private Rating rating;
 
-    public String getName() {
-        return name;
+    public Rating getRating() {
+        return rating;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getReviewer() {
+        return reviewer;
     }
 
-    public int getAge() {
-        return age;
+    public void setReviewer(String reviewer) {
+        this.reviewer = reviewer;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getText() {
+        return text;
     }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
 }
+
+
+
+
+
+
+
+
+
