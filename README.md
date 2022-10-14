@@ -12,7 +12,6 @@ reviews
 ローカルPC上に以下のソフトウェアがインストールされている必要があります。
 
 - JDK 17+
-- Maven 3.8+
 - Tomcat 10.0+
 - MySQL 8+
 
@@ -26,12 +25,6 @@ reviews
 
 ```console
 $ sdk install java 17.0.4-oracle
-```
-
-- Maven
-
-```console
-$ sdk install maven 3.8.6
 ```
 
 - Tomcat

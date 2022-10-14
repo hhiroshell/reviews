@@ -12,7 +12,7 @@ rm ${CATALINA_BASE}/webapps/${APP_CONTEXT}.war
 rm -rf ${CATALINA_BASE}/webapps/${APP_CONTEXT}
 
 pushd ../
-    mvn clean package
+    ./mvnw clean package
     cp ./target/${APP_CONTEXT}.war ${CATALINA_BASE}/webapps/
 popd
 
