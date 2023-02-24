@@ -33,7 +33,7 @@ $ sdk install java 17.0.4-oracle
 $ sdk install tomcat 10.0.22
 ```
 
-#### MySQLのインストール（ローカル環境にMySQLを直接インストールする場合）
+#### MySQLのインストール（ローカル環境にMySQLを直接インストールする場合のみ）
 homebrewを使ってインストールしてください。
 
 ```console
@@ -41,6 +41,8 @@ $ brew install mysql
 ```
 
 ### データベースのセットアップ
+
+#### ローカル環境に直接インストールしている場合
 MySQLを起動して、rootアカウントのセットアップを行います。
 
 ```console
@@ -61,7 +63,7 @@ MySQLのセキュリティ設定のインタラクションが開始されます
 $ mysql -uroot -ppassword < mysql/CREATE_REVIEWS_DATA.sql
 ```
 
-#### MySQLのインストール（Dockerを利用する場合）
+#### Dockerを利用する場合
 以下のコマンドを実行すると、パスワード、初期データなど必要な初期化が行われた状態で、DockerコンテナとしてMySQLが起動します。
 
 ```
