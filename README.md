@@ -9,11 +9,11 @@ reviews
 以下にローカルPC上で本アプリケーションを実行する手順を記します。現時点ではローカルPCがmacOS Montereyであることが前提の手順となっています。
 
 ### 事前準備
-ローカルPC上に以下のソフトウェアがインストールされている必要があります。
+ローカルPCなどの実行環境上に以下のソフトウェアがインストールされている必要があります。
 
 - JDK 17+
 - Tomcat 10.0+
-- MySQL 8+
+- MySQL 8+ または Docker 20.10+
 
 > **Note**<br>
 > 各ソフトウェアのバージョン番号は動作確認が取れているものを示しており、これ以外でも動作する可能性はあります。
@@ -33,7 +33,7 @@ $ sdk install java 17.0.4-oracle
 $ sdk install tomcat 10.0.22
 ```
 
-#### MySQLのインストール
+#### MySQLのインストール（ローカル環境にMySQLを直接インストールする場合）
 homebrewを使ってインストールしてください。
 
 ```console
@@ -61,13 +61,24 @@ MySQLのセキュリティ設定のインタラクションが開始されます
 $ mysql -uroot -ppassword < mysql/CREATE_REVIEWS_DATA.sql
 ```
 
+#### MySQLのインストール（Dockerを利用する場合）
+以下のコマンドを実行すると、パスワード、初期データなど必要な初期化が行われた状態で、DockerコンテナとしてMySQLが起動します。
+
+```
+$ docker run -d \
+    --name reviews-db \
+    -e MYSQL_ROOT_PASSWORD=password \
+    -v $(pwd)/hack/mysql:/docker-entrypoint-initdb.d:ro \
+    -p 3306:3306 \
+    mysql:8.0
+```
+
 ### アプリケーションの起動
 アプリケーションを起動して、動作を確認してみます。
-`hack/re-deploy.sh` スクリプトを実行すると、Tomcatの停止、アプリケーションのビルド、Tomcatへのデプロイ、Tomcatの再起動が自動的に行われます。
-初回実行時はTomcatが起動していないためTomcatの停止処理でエラーとなりますが、動作に問題はありません。
+`hack/scripts/deploy.sh` スクリプトを実行すると、Tomcatの停止、アプリケーションのビルド、Tomcatへのデプロイ、Tomcatの再起動が自動的に行われます。
 
 ```console
-$ hack/re-deploy.sh
+$ hack/scripts/deploy.sh
 ```
 
 次に実際にアプリケーションにアクセスして、正しく応答が返ることを確認します。
@@ -87,7 +98,7 @@ $ curl http://localhost:8080/reviews/0 | jq
     },
     {
       "rating": {
-        "color": "red",
+        "color": "red",
         "stars": 4
       },
       "reviewer": "Bob",
@@ -103,14 +114,19 @@ Tomcat、MySQLをそれぞれ停止します。
 - Tomcat
 
 ```console
-$ hack/shutdown.sh
+$ hack/scripts/shutdown.sh
 ```
 
-- MySQL
+- MySQL（ローカル環境に直接インストールしている場合）
 
 ```console
 $ mysql.server stop
 ```
 
+- MySQL（Dockerを利用している場合）
+
+```console
+$ docker container stop reviews-db
+```
 
 以上。
