@@ -3,8 +3,11 @@
 cd $(dirname "$0")
 
 source ./init.sh
-
-./shutdown.sh
+ 
+ps -f | grep "org.apache.catalina.startup.Bootstrap" | grep -v "grep" > /dev/null
+if [ $? -eq 0 ]; then
+    ./shutdown.sh
+fi
 
 APP_CONTEXT=reviews
 
